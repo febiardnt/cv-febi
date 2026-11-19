@@ -1,0 +1,27 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+
+class Achievement extends Model
+{
+    protected $fillable = [
+        'profile_id',
+        'title',
+        'issuer',
+        'date',
+        'description',
+        'certificate_file',
+    ];
+
+    protected $casts = [
+        'date' => 'date',
+    ];
+
+    public function profile(): BelongsTo
+    {
+        return $this->belongsTo(Profile::class);
+    }
+}
