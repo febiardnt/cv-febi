@@ -3,23 +3,23 @@
 namespace Database\Seeders;
 
 use App\Models\User;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Profile;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
-    use WithoutModelEvents;
-
-    /**
-     * Seed the application's database.
-     */
     public function run(): void
     {
-        // User::factory(10)->create();
-
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+        Profile::updateOrCreate(
+            ['id' => 1],
+            [
+                'nim' => '2430521005',
+                'nama' => 'Febi Ardianti Sodikin',
+                'program_studi' => 'Teknik Informatika',
+                'universitas' => 'Universitas Muhammadiyah Sukabumi',
+                'tentang_saya' => 'Saya adalah mahasiswa Teknik Informatika Universitas Muhammadiyah Sukabumi yang tertarik pada pengembangan web dan teknologi informasi.',
+                'foto' => 'foto/febi.jpg',
+            ]
+        );
     }
 }
